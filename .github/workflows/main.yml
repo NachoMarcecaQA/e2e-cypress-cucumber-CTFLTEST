@@ -1,0 +1,64 @@
+name: Cypress Tests
+
+on:
+  push: 
+    branches: 
+      - main  # Ejecuta el flujo de trabajo cuando hay cambios en la rama principal
+  schedule: 
+    - cron: '0 0 * * 0'  # Ejecuta el flujo de trabajo a medianoche (UTC) todos los domingos
+  workflow_dispatch:  # Permite ejecutar el flujo de trabajo manualmente
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run E2E Tests Desktop
+        uses: cypress-io/github-action@v6
+        with:
+          command: npm run e2e-desktop-ci
+          record: true
+          parallel: true
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMIT_INFO_MESSAGE: Cypress E2E Desktop
+
+      - name: Publish Desktop Test Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cucumber-report-desktop
+          path: cucumber-report.html
+
+      - name: Run E2E Tests Mobile
+        if: always()
+        uses: cypress-io/github-action@v6
+        with:
+          command: npm run e2e-mobile-ci
+          record: true
+          parallel: true
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMIT_INFO_MESSAGE: Cypress E2E Mobile
+
+      - name: Publish Mobile Test Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cucumber-report-mobile
+          path: cucumber-report.html
+
+
