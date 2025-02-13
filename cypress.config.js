@@ -23,7 +23,7 @@ module.exports = defineConfig({
     setupNodeEvents,
     specPattern: "cypress/e2e/features/*.feature",
     projectId: "xd7kr3",
-    baseUrl: "https://bootcampqa.com/",
+    baseUrl: "https://nachomarcecaqa.github.io/ISTQB_CTFL_Test/",
     chromeWebSecurity: true
   },
 });
