@@ -5,7 +5,7 @@ import {
   } from "@badeball/cypress-cucumber-preprocessor";
   
 
-  When("the user visits homepage", () => {
+  When("the user visits ISTQB CTFL homepage", () => {
     cy.visit("/");
   });
 
