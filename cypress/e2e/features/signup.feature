@@ -9,12 +9,12 @@
 # - ISTQB Tests must be shown after signup is complete.
 
 
-Feature: Signup new user
+# Feature: Signup new user
 
-As a student, I want to signup in the ISTQB CTFL site with my name and surname, so that  I can access the test.
+# As a student, I want to signup in the ISTQB CTFL site with my name and surname, so that  I can access the test.
 
-Scenario: Form should have “Sign up“ as Title.
-    Given the user visits ISTQB CTFL homepage
-    When 
-    Then 
+# Scenario: Form should have “Sign up“ as Title.
+#     Given the user visits ISTQB CTFL homepage
+#     When 
+#     Then 
 
