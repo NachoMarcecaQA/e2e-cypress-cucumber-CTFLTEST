@@ -9,7 +9,7 @@ Background: The user visits site and successfully registers
     And the user fill surname with "Cox" 
     And the user clicks on signup submit
 
-Scenario Outline: Pass the exam
+Scenario: Pass the exam
     When the user clicks on correct Q1 "question-0-option-3"
     And the user clicks on correct Q3 "question-1-option-1" 
     And the user clicks on correct Q2 "question-2-option-1"
@@ -23,7 +23,7 @@ Scenario Outline: Pass the exam
     And the user clicks on finish exam
     Then Passed final score should be "20/20"
 
-Scenario Outline: Fail the exam
+Scenario: Fail the exam
     When the user clicks on incorrect Q1 "question-0-option-2"
     And the user clicks on incorrect Q3 "question-1-option-3" 
     And the user clicks on incorrect Q2 "question-2-option-2"
