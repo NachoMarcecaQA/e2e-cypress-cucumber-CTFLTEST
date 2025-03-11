@@ -20,6 +20,11 @@ import {
       .should('have.attr', 'placeholder', signup_placeholder_surname);
   });
   
+  Then("exam should not be visible", () => {
+    cy.get('[data-testid="exam"]')
+      .should('not.be.visible');;
+  });
+
   //Fill sign up form with mandatory fields happy path
   When("the user fill name with {string}", (name) => {
     cy.get('[data-testid="signup_name"]')
@@ -45,6 +50,11 @@ import {
       .should('contain', welcome_message);
   });
 
+  Then("sign up form should not be visible", () => {
+    cy.get('[data-testid="signup"]')
+      .should('not.be.visible');;
+  });
+
   //Fill sign up form with invalid data
   When("the user fill names with {string}", (name) => {
     cy.get('[data-testid="signup_name"]')
@@ -61,11 +71,11 @@ import {
   });
 
   When("the user clicks on signup submit_", () => {
-    cy.get('[data-testid="singup_submit"]')
+    cy.get('[data-testid="signup_submit"]')
       .click();
   });
 
     Then("the user should see error message {string}", (error_message) => {
-    cy.get('[data-testid="singup_error_message"]')
+    cy.get('[data-testid="signup_error_message"]')
       .should('contain', error_message);
   });

@@ -1,6 +1,6 @@
 #CTFLTEST-3 (Exam)
 
-Feature: Signup new user
+Feature: Exam
 As a student, I want to answer 10 questions from the ISTQB exam, so that I can receive my grade for all the questions simultaneously.
 
 Background: The user visits site and successfully registers
