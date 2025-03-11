@@ -41,7 +41,7 @@ import {
   });
 
   When("the user clicks on signup submit", () => {
-    cy.get('[data-testid="singup_submit"]')
+    cy.get('[data-testid="signup_submit"]')
       .click();
   });
 
